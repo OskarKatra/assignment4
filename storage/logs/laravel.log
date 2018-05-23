@@ -1,0 +1,4 @@
+[2018-05-23 09:26:36] local.ERROR: Illuminate\Routing\Router::loadRoutes(): Failed opening required '/media/sf_Shared_Folder_VM/assignment4/routes/api.php' (include_path='.:/usr/share/php') {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Illuminate\\Routing\\Router::loadRoutes(): Failed opening required '/media/sf_Shared_Folder_VM/assignment4/routes/api.php' (include_path='.:/usr/share/php') at /media/sf_Shared_Folder_VM/assignment4/vendor/laravel/framework/src/Illuminate/Routing/Router.php:394)
+[stacktrace]
+#0 {main}
+"} 
