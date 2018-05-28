@@ -13,7 +13,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::all();
+        return response()->json($movies);
     }
 
     /**
@@ -34,7 +35,25 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = new \stdClass();
+        try {
+          $movie = new Movie;
+          $movie->title = $request->get('name');
+          $movie->brand = $request->get('duration');
+
+          $movie->save();
+
+          // foreach ($request->get('tickets') as $ticket) {
+          //   $movie->tickets()->attach($ticket);
+          // }
+
+          $response->success = true;
+        }
+        catch(\Exception $e) {
+          // $response->message = $e->getMessage();
+          $response->success = false;
+        }
+        return response()->json($response);
     }
 
     /**
@@ -45,7 +64,10 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $movie->name = $movie->name;
+        $movie->duration = $movie->duration;
+        return response()->json($movie);
     }
 
     /**

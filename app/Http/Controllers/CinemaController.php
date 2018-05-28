@@ -13,7 +13,8 @@ class CinemaController extends Controller
      */
     public function index()
     {
-        //
+        $cinemas = Cinema::all();
+        return response()->json($cinemas);
     }
 
     /**
@@ -34,7 +35,25 @@ class CinemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = new \stdClass();
+        try {
+          $cinema = new Cinema;
+          $cinema->title = $request->get('screen');
+          $cinema->brand = $request->get('seats');
+
+          $cinema->save();
+
+          // foreach ($request->get('tickets') as $ticket) {
+          //   $cinema->tickets()->attach($ticket);
+          // }
+
+          $response->success = true;
+        }
+        catch(\Exception $e) {
+          // $response->message = $e->getMessage();
+          $response->success = false;
+        }
+        return response()->json($response);
     }
 
     /**
@@ -45,7 +64,10 @@ class CinemaController extends Controller
      */
     public function show($id)
     {
-        //
+        $cinema = Cinema::findOrFail($id);
+        $cinema->screen = $cinema->screen;
+        $cinema->seats = $cinema->seats;
+        return response()->json($cinema);
     }
 
     /**

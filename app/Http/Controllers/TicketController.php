@@ -13,7 +13,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::all();
+        return response()->json($tickets);
     }
 
     /**
@@ -34,7 +35,23 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = new \stdClass();
+        try {
+          $ticket = new Ticket;
+          $ticket->title = $request->get('time');
+          $ticket->brand = $request->get('seat');
+          $ticket->brand = $request->get('movie_id');
+          $ticket->brand = $request->get('cinema_id');
+          $ticket->brand = $request->get('user_id');
+          $ticket->save();
+
+          $response->success = true;
+        }
+        catch(\Exception $e) {
+          // $response->message = $e->getMessage();
+          $response->success = false;
+        }
+        return response()->json($response);
     }
 
     /**
