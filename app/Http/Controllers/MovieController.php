@@ -7,100 +7,107 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         $movies = Movie::all();
-        return response()->json($movies);
+
+        return view("movies.index", [
+            "movies" => $movies
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
-        //
+        return view("movies.create");
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
-        $response = new \stdClass();
         try {
-          $movie = new Movie;
-          $movie->title = $request->get('name');
-          $movie->brand = $request->get('duration');
-
-          $movie->save();
-
-          // foreach ($request->get('tickets') as $ticket) {
-          //   $movie->tickets()->attach($ticket);
-          // }
-
-          $response->success = true;
+            $movie = new Movie;
+            $movie->name = $request->name;
+            $movie->duration = $request->duration;
+            $movie->save();
         }
         catch(\Exception $e) {
-          // $response->message = $e->getMessage();
-          $response->success = false;
+            return redirect()->route('movies.index');
         }
-        return response()->json($response);
+
+        // return redirect()->route('movies.show', ['id' => $movie->id]);
+        return redirect()->route('movies.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
-        $movie = Movie::findOrFail($id);
-        $movie->name = $movie->name;
-        $movie->duration = $movie->duration;
-        return response()->json($movie);
+        $movie = Movie::find($id);
+        return view("movies.show", [
+            "movie" => $movie
+        ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
-        //
+        $movie = Movie::find($id);
+        return view("movies.edit", [
+            "movie" => $movie
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::find($id);
+        $movie->name = $request->name;
+        $movie->duration = $request->duration;
+        $movie->save();
+
+        return redirect()->route('movies.show', ['id' => $id]);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
-        //
+        $movie = Movie::find($id);
+        $movie->delete();
+
+        return redirect()->route('movies.index');
     }
 }

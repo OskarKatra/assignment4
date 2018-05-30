@@ -7,100 +7,107 @@ use Illuminate\Http\Request;
 class CinemaController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         $cinemas = Cinema::all();
-        return response()->json($cinemas);
+
+        return view("cinemas.index", [
+            "cinemas" => $cinemas
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
-        //
+        return view("cinemas.create");
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
-        $response = new \stdClass();
         try {
-          $cinema = new Cinema;
-          $cinema->title = $request->get('screen');
-          $cinema->brand = $request->get('seats');
-
-          $cinema->save();
-
-          // foreach ($request->get('tickets') as $ticket) {
-          //   $cinema->tickets()->attach($ticket);
-          // }
-
-          $response->success = true;
+            $cinema = new Cinema;
+            $cinema->screen = $request->screen;
+            $cinema->seats = $request->seats;
+            $cinema->save();
         }
         catch(\Exception $e) {
-          // $response->message = $e->getMessage();
-          $response->success = false;
+            return redirect()->route('cinemas.index');
         }
-        return response()->json($response);
+
+        // return redirect()->route('cinemas.show', ['id' => $cinema->id]);
+        return redirect()->route('cinemas.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
-        $cinema = Cinema::findOrFail($id);
-        $cinema->screen = $cinema->screen;
-        $cinema->seats = $cinema->seats;
-        return response()->json($cinema);
+        $cinema = Cinema::find($id);
+        return view("cinemas.show", [
+            "cinema" => $cinema
+        ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
-        //
+        $cinema = Cinema::find($id);
+        return view("cinemas.edit", [
+            "cinema" => $cinema
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
-        //
+        $cinema = Cinema::find($id);
+        $cinema->screen = $request->screen;
+        $cinema->seats = $request->seats;
+        $cinema->save();
+
+        return redirect()->route('cinemas.show', ['id' => $id]);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
-        //
+        $cinema = Cinema::find($id);
+        $cinema->delete();
+
+        return redirect()->route('cinemas.index');
     }
 }
