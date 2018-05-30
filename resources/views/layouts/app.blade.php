@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Cinematicon') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                      <li><a class="nav-link" href="{{ route('cinemas.index') }}">Biosal</a></li>
+                      <li><a class="nav-link" href="{{ route('movies.index') }}">Film</a></li>
+                      <li><a class="nav-link" href="{{ route('tickets.index') }}">Biljett</a></li>
+
 
                     </ul>
 
@@ -71,5 +75,10 @@
             @yield('content')
         </main>
     </div>
+    <footer>
+      <p style="text-align:center;border-top: 1px solid grey">
+       &copy; Robin Håkansson, Oskar Katra & Christina Tsigara
+      </p>
+      </footer>
 </body>
 </html>

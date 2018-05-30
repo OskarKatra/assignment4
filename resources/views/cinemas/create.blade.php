@@ -14,7 +14,7 @@
             <input type="number" step="any" name="seats" value="">
 
         </div>
-        <input type="submit" name="submit" value="Create">
+        <input type="submit" name="submit" value="Skapa">
     </form>
     <a href="{{ route('cinemas.index') }}">Titta på alla biosalar</a>
 @endsection

@@ -16,12 +16,12 @@
             <label for="">Antal platser</label>
             <input type="number" step="any" name="seats" value="{{ $cinema->seats }}">
         </div>
-        <input type="submit" name="submit" value="Update">
+        <input type="submit" name="submit" value="Uppdatera">
     </form>
 
     <form class="" action="{{ route('cinemas.destroy', $cinema->id) }}" method="post">
         @method('DELETE')
         @csrf
-        <input type="submit" name="submit" value="Delete">
+        <input type="submit" name="submit" value="Radera">
     </form>
 @endsection
