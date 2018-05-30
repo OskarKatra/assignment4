@@ -41,7 +41,7 @@ class CinemaController extends Controller
     {
         try {
             $cinema = new Cinema;
-            $cinema->screen = $request->screen;
+            $cinema->name = $request->name;
             $cinema->seats = $request->seats;
             $cinema->save();
         }
@@ -91,7 +91,7 @@ class CinemaController extends Controller
     public function update(Request $request, $id)
     {
         $cinema = Cinema::find($id);
-        $cinema->screen = $request->screen;
+        $cinema->name = $request->name;
         $cinema->seats = $request->seats;
         $cinema->save();
 
