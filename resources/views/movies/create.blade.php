@@ -11,7 +11,7 @@
             <label for="">Filmnamn</label>
             <input type="text" step="any" name="name" value="">
             <label for="">Längd</label>
-            <input type="number" step="any" name="duration" value="">
+            <input type="number" step="any" name="runtime" value="">
 
         </div>
         <input type="submit" name="submit" value="Skapa">

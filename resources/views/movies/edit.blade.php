@@ -14,7 +14,7 @@
             <label for="">Filmnamn</label>
             <input type="text" step="any" name="name" value="{{ $movie->name }}">
             <label for="">Längd</label>
-            <input type="number" step="any" name="duration" value="{{ $movie->duration }}">
+            <input type="number" step="any" name="runtime" value="{{ $movie->runtime }}">
         </div>
         <input type="submit" name="submit" value="Uppdatera">
     </form>

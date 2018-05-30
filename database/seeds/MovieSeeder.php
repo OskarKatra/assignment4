@@ -13,49 +13,50 @@ class MovieTableSeeder extends Seeder
     {
         DB::table('movies')->insert([
             [
-                "name" => "Solo: A Star Wars Story",
-                "duration" => "135",
+                "title" => "Solo: A Star Wars Story",
+                "genre" => "Fantasy/Science fiction"
+                "runtime" => "135",
             ],
-            [
-                "name" => "A Quiet Place",
-                "duration" => "91",
-            ],
-            [
-                "name" => "Darkest Hour",
-                "duration" => "125",
-            ],
-            [
-                "name" => "Deadpool 2",
-                "duration" => "119",
-            ],
-            [
-                "name" => "Isle of Dogs",
-                "duration" => "101",
-            ],
-            [
-                "name" => "Tomb Raider",
-                "duration" => "117",
-            ],
-            [
-                "name" => "The Post",
-                "duration" => "116",
-            ],
-            [
-                "name" => "Black Panther",
-                "duration" => "134",
-            ],
-            [
-                "name" => "Ghostland",
-                "duration" => "91",
-            ],
-            [
-                "name" => "Good Bye Christopher Robin",
-                "duration" => "107",
-            ],
-            [
-                "name" => "Jumanji",
-                "duration" => "119",
-            ],
+            // [
+            //     "title" => "A Quiet Place",
+            //     "runtime" => "91",
+            // ],
+            // [
+            //     "title" => "Darkest Hour",
+            //     "runtime" => "125",
+            // ],
+            // [
+            //     "title" => "Deadpool 2",
+            //     "runtime" => "119",
+            // ],
+            // [
+            //     "title" => "Isle of Dogs",
+            //     "runtime" => "101",
+            // ],
+            // [
+            //     "title" => "Tomb Raider",
+            //     "runtime" => "117",
+            // ],
+            // [
+            //     "title" => "The Post",
+            //     "runtime" => "116",
+            // ],
+            // [
+            //     "title" => "Black Panther",
+            //     "runtime" => "134",
+            // ],
+            // [
+            //     "title" => "Ghostland",
+            //     "runtime" => "91",
+            // ],
+            // [
+            //     "title" => "Good Bye Christopher Robin",
+            //     "runtime" => "107",
+            // ],
+            // [
+            //     "title" => "Jumanji",
+            //     "runtime" => "119",
+            // ],
         ]);
     }
 }

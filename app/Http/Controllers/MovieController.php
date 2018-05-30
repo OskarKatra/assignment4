@@ -42,7 +42,7 @@ class MovieController extends Controller
         try {
             $movie = new Movie;
             $movie->name = $request->name;
-            $movie->duration = $request->duration;
+            $movie->runtime = $request->runtime;
             $movie->save();
         }
         catch(\Exception $e) {
@@ -92,7 +92,7 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
         $movie->name = $request->name;
-        $movie->duration = $request->duration;
+        $movie->runtime = $request->runtime;
         $movie->save();
 
         return redirect()->route('movies.show', ['id' => $id]);
