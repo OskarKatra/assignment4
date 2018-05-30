@@ -24,5 +24,3 @@ Route::resource('cinemas', 'CinemaController', ['only' => ['create', 'store', 'e
 });
 
 Route::resource('cinemas', 'CinemaController', ['only' => ['index', 'show']]);
-Chat Conversation End
-Type a message, @name...
