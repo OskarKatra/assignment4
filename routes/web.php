@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(["middleware" => ["auth"]], function() {
+    // Alla routes här har middleware auth
+Route::resource('cinemas', 'CinemaController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+});
+
+Route::resource('cinemas', 'CinemaController', ['only' => ['index', 'show']]);
+Chat Conversation End
+Type a message, @name...
