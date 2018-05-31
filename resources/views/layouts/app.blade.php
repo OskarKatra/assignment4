@@ -19,9 +19,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/robin_style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/christina_style.css') }}" rel="stylesheet">
+
 </head>
 <body>
-    <div style="min-height:450px; id="app">
+    <div style="min-height:450px;" id="app" class="curtain-background">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -75,7 +78,7 @@
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-10">
+                <div class="col-md-10 main-content">
                     <div class="content">
                         @yield('content')
                     </div>

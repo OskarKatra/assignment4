@@ -1,0 +1,16 @@
+.curtain-background{
+    background: url("/images/curtain-1275200.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-content {
+    background: #fff;
+    margin-top: 30px;
+    padding: 10px;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+}
