@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Updatera biosal</h1>
+    <h1>Uppdatera biosalong</h1>
 
     <form class="" action="{{ route('cinemas.update', $cinema->id) }}" method="post">
         @method('PUT')

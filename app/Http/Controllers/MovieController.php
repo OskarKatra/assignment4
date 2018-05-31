@@ -41,12 +41,14 @@ class MovieController extends Controller
     {
         try {
             $movie = new Movie;
-            $movie->name = $request->name;
+            $movie->title = $request->title;
+            $movie->genre = $request->genre;
             $movie->runtime = $request->runtime;
             $movie->save();
         }
         catch(\Exception $e) {
-            return redirect()->route('movies.index');
+            // return redirect()->route('movies.index');
+            return redirect()->route('movies.create');
         }
 
         // return redirect()->route('movies.show', ['id' => $movie->id]);
@@ -90,10 +92,17 @@ class MovieController extends Controller
     */
     public function update(Request $request, $id)
     {
-        $movie = Movie::find($id);
-        $movie->name = $request->name;
-        $movie->runtime = $request->runtime;
-        $movie->save();
+        try {
+            $movie = Movie::find($id);
+            $movie->title = $request->title;
+            $movie->genre = $request->genre;
+            $movie->runtime = $request->runtime;
+            $movie->save();
+        }
+        catch(\Exception $e) {
+            // return redirect()->route('movies.index');
+            return redirect()->route('movies.edit', ['id' => $id]);
+        }
 
         return redirect()->route('movies.show', ['id' => $id]);
     }

@@ -34,9 +34,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li><a class="nav-link" href="{{ route('cinemas.index') }}">Biosal</a></li>
-                      <li><a class="nav-link" href="{{ route('movies.index') }}">Film</a></li>
-                      <li><a class="nav-link" href="{{ route('tickets.index') }}">Biljett</a></li>
+                        <li><a class="nav-link" href="{{ route('cinemas.index') }}">Biosal</a></li>
+                        <li><a class="nav-link" href="{{ route('movies.index') }}">Film</a></li>
+                        <li><a class="nav-link" href="{{ route('tickets.index') }}">Biljett</a></li>
 
 
                     </ul>
@@ -54,31 +54,40 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('showMyTickets') }}">Mina biljetter</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="content">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-    <footer>
-      <p style="text-align:center;border-top: 1px solid grey">
-       &copy; Robin Håkansson, Oskar Katra & Christina Tsigara
-      </p>
-      </footer>
+        </div>
+    </main>
+</div>
+<footer>
+    <p style="text-align:center;border-top: 1px solid grey">
+        &copy; 2018 Robin Håkansson, Oskar Katra & Christina Tsigara
+    </p>
+</footer>
 </body>
 </html>

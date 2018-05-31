@@ -23,6 +23,7 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::resource('cinemas', 'CinemaController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
     Route::resource('movies', 'MovieController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
     Route::resource('tickets', 'TicketController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('/myTickets', 'TicketController@showMyTickets')->name('showMyTickets');
 });
 
 Route::resource('cinemas', 'CinemaController', ['only' => ['index', 'show']]);

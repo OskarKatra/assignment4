@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Ticket;
+use App\Cinema;
+use App\Movie;
 
 class TicketController extends Controller
 {
@@ -28,7 +31,10 @@ class TicketController extends Controller
     */
     public function create()
     {
-        return view("tickets.create");
+        return view("tickets.create", [
+            "cinemas" => Cinema::pluck('name', 'id'),
+            "movies" => Movie::pluck('title', 'id')
+        ]);
     }
 
     /**
@@ -43,13 +49,14 @@ class TicketController extends Controller
             $ticket = new Ticket;
             $ticket->time = $request->time;
             $ticket->seat = $request->seat;
+            $ticket->price = $request->price;
             $ticket->cinema_id = $request->cinema_id;
             $ticket->movie_id = $request->movie_id;
-            $ticket->user_id = $request->user_id;
+            $ticket->user_id = Auth::id();
             $ticket->save();
         }
         catch(\Exception $e) {
-            return redirect()->route('tickets.index');
+            return redirect()->route('tickets.create');
         }
 
         // return redirect()->route('tickets.show', ['id' => $ticket->id]);
@@ -80,7 +87,9 @@ class TicketController extends Controller
     {
         $ticket = Ticket::find($id);
         return view("tickets.edit", [
-            "ticket" => $ticket
+            "ticket" => $ticket,
+            "cinemas" => Cinema::pluck('name', 'id'),
+            "movies" => Movie::pluck('title', 'id')
         ]);
     }
 
@@ -93,13 +102,20 @@ class TicketController extends Controller
     */
     public function update(Request $request, $id)
     {
-        $ticket = Ticket::find($id);
-        $ticket->time = $request->time;
-        $ticket->seat = $request->seat;
-        $ticket->cinema_id = $request->cinema_id;
-        $ticket->movie_id = $request->movie_id;
-        $ticket->user_id = $request->user_id;
-        $ticket->save();
+        try {
+            $ticket = Ticket::find($id);
+            $ticket->time = $request->time;
+            $ticket->seat = $request->seat;
+            $ticket->price = $request->price;
+            $ticket->cinema_id = $request->cinema_id;
+            $ticket->movie_id = $request->movie_id;
+            $ticket->user_id = Auth::id();
+            $ticket->save();
+        }
+        catch(\Exception $e) {
+            // return redirect()->route('ticket.index');
+            return redirect()->route('ticket.edit', ['id' => $id]);
+        }
 
         return redirect()->route('tickets.show', ['id' => $id]);
     }
@@ -117,4 +133,19 @@ class TicketController extends Controller
 
         return redirect()->route('tickets.index');
     }
+
+
+    public function showMyTickets()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $tickets = $user->tickets;
+            return view("tickets.showMyTickets", [
+                "tickets" => $tickets
+            ]);
+        }
+        return redirect()->route('tickets.index');
+    }
+
+
 }

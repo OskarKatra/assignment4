@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
     <form class="" action="{{ route('movies.store') }}" method="post">
         @csrf
         <div class="form-group">
             <h1>Skapa ny film</h1>
         </div>
         <div class="form-group">
-            <label for="">Filmnamn</label>
-            <input type="text" step="any" name="name" value="">
-            <label for="">Längd</label>
-            <input type="number" step="any" name="runtime" value="">
+            <label for="">Titel</label>
+            <input type="text" name="title" value="">
+            <label for="">Genre</label>
+            <input type="text" name="genre" value="">
+            <label for="">Speltid</label>
+            <input type="number" step="any" name="runtime" value=""><span>minuter</span>
 
         </div>
         <input type="submit" name="submit" value="Skapa">
