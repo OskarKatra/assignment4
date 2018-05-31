@@ -47,7 +47,7 @@ class TicketController extends Controller
     {
         try {
             $ticket = new Ticket;
-            $ticket->time = $request->time;
+            $ticket->time = $request->date . $request->time;
             $ticket->seat = $request->seat;
             $ticket->price = $request->price;
             $ticket->cinema_id = $request->cinema_id;
@@ -104,7 +104,7 @@ class TicketController extends Controller
     {
         try {
             $ticket = Ticket::find($id);
-            $ticket->time = $request->time;
+            $ticket->time = $request->date . $request->time;
             $ticket->seat = $request->seat;
             $ticket->price = $request->price;
             $ticket->cinema_id = $request->cinema_id;
