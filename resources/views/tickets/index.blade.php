@@ -7,5 +7,5 @@
         <a href="{{ route('tickets.show', $ticket->id) }}">{{ $ticket->id }}</a><br>
     @endforeach
     <br>
-    <a href="{{ route('tickets.create') }}">Ny biljett</a>
+    <a href="{{ route('tickets.create') }}"><button class="button new">Ny biljett</button></a>
 @endsection

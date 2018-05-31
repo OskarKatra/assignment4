@@ -7,5 +7,5 @@
         <a href="{{ route('movies.show', $movie->id) }}">{{ $movie->title }}</a><br>
     @endforeach
     <br>
-    <a href="{{ route('movies.create') }}">Ny film</a>
+    <a href="{{ route('movies.create') }}"><button class="button new">Ny film</button></a>
 @endsection

@@ -16,7 +16,7 @@
             <input type="number" step="any" name="seats" value="">
 
         </div>
-        <input type="submit" name="submit" value="Skapa">
+        <input button class="button createbutton" type="submit" name="submit" value="Skapa"></button>
     </form>
-    <a href="{{ route('cinemas.index') }}">Titta på alla biosalar</a>
+    <a href="{{ route('cinemas.index') }}"><button class="button viewall">Titta på alla biosalar</button></a>
 @endsection

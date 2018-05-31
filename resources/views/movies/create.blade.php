@@ -19,7 +19,7 @@
             <input type="number" step="any" name="runtime" value=""><span>minuter</span>
 
         </div>
-        <input type="submit" name="submit" value="Skapa">
+        <input button class="button createbutton" type="submit" name="submit" value="Skapa"></button>
     </form>
-    <a href="{{ route('movies.index') }}">Titta på alla filmer</a>
+    <a href="{{ route('movies.index') }}"><button class="button viewall">Titta på alla filmer</button></a>
 @endsection

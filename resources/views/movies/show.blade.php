@@ -5,5 +5,5 @@
     <p>Titel: {{ $movie->title }}</p>
     <p>Genre: {{ $movie->genre }}</p>
     <p>Speltid: {{ $movie->runtime }}</p>
-    <a href="{{ route('movies.edit', $movie->id) }}">Redigera</a>
+    <a href="{{ route('movies.edit', $movie->id) }}"><button class="button editbutton">Redigera</button></a>
 @endsection

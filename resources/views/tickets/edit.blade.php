@@ -39,12 +39,12 @@
                 @endforelse
             </select>
         </div>
-        <input type="submit" name="submit" value="Uppdatera">
+        <input button class="button updatebutton" type="submit" name="submit" value="Uppdatera"></button>
     </form>
 
     <form class="" action="{{ route('tickets.destroy', $ticket->id) }}" method="post">
         @method('DELETE')
         @csrf
-        <input type="submit" name="submit" value="Radera">
+        <input button class="button deletebutton" type="submit" name="submit" value="Radera"></button>
     </form>
 @endsection
