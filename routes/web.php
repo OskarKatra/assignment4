@@ -18,3 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(["middleware" => ["auth"]], function() {
+    // Alla routes här har middleware auth
+    Route::resource('cinemas', 'CinemaController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('movies', 'MovieController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('tickets', 'TicketController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('/myTickets', 'TicketController@showMyTickets')->name('showMyTickets');
+});
+
+Route::resource('cinemas', 'CinemaController', ['only' => ['index', 'show']]);
+Route::resource('movies', 'MovieController', ['only' => ['index', 'show']]);
+Route::resource('tickets', 'TicketController', ['only' => ['index', 'show']]);
