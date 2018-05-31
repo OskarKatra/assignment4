@@ -8,11 +8,11 @@
         </div>
         <div class="form-group">
           Välj dag:
-          <input type="date" name="date">
-          <input type="time" name="time">
+          <input type="date" min="{{ date('Y-m-d') }}" name="date">
+          <input type="time" min="{{ date('H:i') }}" name="time">
        </div>
         <div class="form-group">
-            <label for="">Plats</label>
+            <label for="">Antal platser</label>
             <input type="number" step="any" name="seat" value="">
         </div>
         <div class="form-group">
