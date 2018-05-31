@@ -14,7 +14,6 @@ class MovieTableSeeder extends Seeder
         DB::table('movies')->insert([
             [
                 "title" => "Solo: A Star Wars Story",
-                "genre" => "Fantasy/Science fiction",
                 "runtime" => 135,
             ],
             [
