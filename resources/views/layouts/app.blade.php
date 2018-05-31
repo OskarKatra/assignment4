@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cinematicon') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div style="min-height:450px; id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -85,7 +85,7 @@
     </main>
 </div>
 <footer>
-    <p style="text-align:center;border-top: 1px solid grey">
+    <p style="text-align:center;border-top: 1px solid grey;">
         &copy; 2018 Robin Håkansson, Oskar Katra & Christina Tsigara
     </p>
 </footer>
