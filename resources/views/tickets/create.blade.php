@@ -9,7 +9,7 @@
         <div class="form-group">
           Välj dag:
           <input type="date" min="{{ date('Y-m-d') }}" name="date">
-          <input type="time" min="{{ date('H:i') }}" name="time">
+          <input type="time" name="time">
        </div>
         <div class="form-group">
             <label for="">Antal platser</label>
