@@ -7,12 +7,13 @@
         @method('PUT')
         @csrf
         <div class="form-group">
-            <label for="">ID {{ $cinema->id }}</label>
-            <h1>ID </h1>
+            <h2>ID {{ $cinema->id }}</h2>
         </div>
         <div class="form-group">
             <label for="">Salongnamn</label>
             <input type="text" step="any" name="name" value="{{ $cinema->name }}">
+        </div>
+        <div class="form-group">
             <label for="">Antal platser</label>
             <input type="number" step="any" name="seats" value="{{ $cinema->seats }}">
         </div>

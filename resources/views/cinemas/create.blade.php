@@ -10,6 +10,8 @@
         <div class="form-group">
             <label for="">Salongnamn</label>
             <input type="text" step="any" name="name" value="">
+        </div>
+        <div class="form-group">
             <label for="">Antal platser</label>
             <input type="number" step="any" name="seats" value="">
 
