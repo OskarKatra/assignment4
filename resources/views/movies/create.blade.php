@@ -9,8 +9,12 @@
         <div class="form-group">
             <label for="">Titel</label>
             <input type="text" name="title" value="">
+        </div>
+        <div class="form-group">
             <label for="">Genre</label>
             <input type="text" name="genre" value="">
+        </div>
+        <div class="form-group">
             <label for="">Speltid</label>
             <input type="number" step="any" name="runtime" value=""><span>minuter</span>
 

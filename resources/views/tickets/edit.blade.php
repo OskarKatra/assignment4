@@ -7,13 +7,17 @@
         @method('PUT')
         @csrf
         <div class="form-group">
-            <h1>ID {{ $ticket->id }}</h1>
+            <h2>ID {{ $ticket->id }}</h2>
         </div>
         <div class="form-group">
             <label for="">Tid</label>
             <input type="datetime-local" name="time" value="{{ $ticket->time }}">
+        </div>
+        <div class="form-group">
             <label for="">Plats</label>
             <input type="number" step="1" name="seat" value="{{ $ticket->seat }}">
+        </div>
+        <div class="form-group">
             <label for="">Pris</label>
             <input type="number" step="any" name="price" value="{{ $ticket->price }}">
         </div>
