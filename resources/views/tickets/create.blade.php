@@ -7,6 +7,11 @@
             <h1>Skapa ny biljett</h1>
         </div>
         <div class="form-group">
+          Välj dag:
+          <input type="date" name="date">
+          <input type="time" name="time">
+       </div>
+        <div class="form-group">
             <label for="">Tid</label>
             <input type="datetime-local" name="time" value="">
         </div>
