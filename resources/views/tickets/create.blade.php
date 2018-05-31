@@ -12,10 +12,6 @@
           <input type="time" name="time">
        </div>
         <div class="form-group">
-            <label for="">Tid</label>
-            <input type="datetime-local" name="time" value="">
-        </div>
-        <div class="form-group">
             <label for="">Plats</label>
             <input type="number" step="any" name="seat" value="">
         </div>
