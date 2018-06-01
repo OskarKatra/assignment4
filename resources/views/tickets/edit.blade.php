@@ -10,8 +10,9 @@
             <h2>ID {{ $ticket->id }}</h2>
         </div>
         <div class="form-group">
-            <label for="">Tid</label>
-            <input type="datetime-local" name="time" value="{{ $ticket->time }}">
+            Välj dag:
+            <input type="date" min="{{ date('Y-m-d') }}" name="date" value="{{ Carbon\Carbon::parse($ticket->time)->format('Y-m-d') }}">
+            <input type="time" name="time" value="{{ Carbon\Carbon::parse($ticket->time)->format('H:i') }}">
         </div>
         <div class="form-group">
             <label for="">Plats</label>
