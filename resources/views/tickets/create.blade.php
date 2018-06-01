@@ -42,7 +42,7 @@
             </select>
         </div>
 
-        <input type="submit" name="submit" value="Skapa">
+        <input button class="button createbutton" type="submit" name="submit" value="Skapa"></button>
     </form>
-    <a href="{{ route('tickets.index') }}">Titta på alla biljetter</a>
+    <a href="{{ route('tickets.index') }}"><button class="button viewall">Titta på alla biljetter</button></a>
 @endsection

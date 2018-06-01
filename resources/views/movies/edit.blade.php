@@ -21,12 +21,12 @@
             <label for="">Speltid</label>
             <input type="number" step="any" name="runtime" value="{{ $movie->runtime }}"><span>minuter</span>
         </div>
-        <input type="submit" name="submit" value="Uppdatera">
+        <input button class="button updatebutton" type="submit" name="submit" value="Uppdatera"></button>
     </form>
 
     <form class="" action="{{ route('movies.destroy', $movie->id) }}" method="post">
         @method('DELETE')
         @csrf
-        <input type="submit" name="submit" value="Radera">
+        <input button class="button deletebutton" type="submit" name="submit" value="Radera"></button>
     </form>
 @endsection
