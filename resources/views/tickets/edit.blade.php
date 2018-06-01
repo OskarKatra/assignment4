@@ -15,7 +15,7 @@
             <input type="time" name="time" value="{{ Carbon\Carbon::parse($ticket->time)->format('H:i') }}">
         </div>
         <div class="form-group">
-            <label for="">Plats</label>
+            <label for="">Stolsnummer</label>
             <input type="number" step="1" name="seat" value="{{ $ticket->seat }}">
         </div>
         <div class="form-group">

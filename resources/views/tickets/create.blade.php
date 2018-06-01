@@ -12,7 +12,7 @@
           <input type="time" name="time">
        </div>
         <div class="form-group">
-            <label for="">Antal platser</label>
+            <label for="">Stolsnummer</label>
             <input type="number" step="any" name="seat" value="">
         </div>
         <div class="form-group">
