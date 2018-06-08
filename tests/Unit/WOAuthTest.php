@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class WOAuthTest extends TestCase
 {
-     
+
     public function testHomePage()
     {
         $response = $this->call('GET', '/');
@@ -27,7 +27,7 @@ class WOAuthTest extends TestCase
         $response->assertViewHas('cinema');
         $this->assertEquals(200, $response->status());
     }
-    
+
     public function testMoviesPage()
     {
         $response = $this->call('GET', '/movies');
