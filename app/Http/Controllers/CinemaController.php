@@ -46,7 +46,7 @@ class CinemaController extends Controller
             $cinema->save();
         }
         catch(\Exception $e) {
-            return redirect()->route('cinemas.index');
+            return redirect()->route('cinemas.create');
         }
 
         // return redirect()->route('cinemas.show', ['id' => $cinema->id]);
@@ -90,10 +90,15 @@ class CinemaController extends Controller
     */
     public function update(Request $request, $id)
     {
+      try {
         $cinema = Cinema::find($id);
         $cinema->name = $request->name;
         $cinema->seats = $request->seats;
         $cinema->save();
+      }
+      catch(\Exception $e) {
+          return redirect()->route('cinemas.edit', ['id' => $id]);
+      }
 
         return redirect()->route('cinemas.show', ['id' => $id]);
     }
@@ -106,8 +111,13 @@ class CinemaController extends Controller
     */
     public function destroy($id)
     {
+      try {
         $cinema = Cinema::find($id);
         $cinema->delete();
+      }
+      catch(\Exception $e) {
+          return redirect()->route('cinemas.index', ['id' => $id]);
+      }
 
         return redirect()->route('cinemas.index');
     }
