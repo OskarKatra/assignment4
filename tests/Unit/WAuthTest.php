@@ -30,6 +30,7 @@ class WAuthTest extends TestCase
        $this->actingAs(factory('App\User')->make());
        $response = $this->call('GET', '/cinemas/create');
        $this->assertEquals(200, $response->status());
+       $response->assertViewIs('cinemas.create');
      }
      // ------------------------------------------------------------------------
      public function test_guest_access_to_cinema_edit_page()
@@ -44,6 +45,7 @@ class WAuthTest extends TestCase
        $this->actingAs(factory('App\User')->make());
        $response = $this->call('GET', '/cinemas/1/edit');
        $this->assertEquals(200, $response->status());
+       $response->assertViewIs('cinemas.edit');
      }
      // ------------------------------------------------------------------------
      public function test_guest_access_to_cinema_store()
@@ -131,6 +133,7 @@ class WAuthTest extends TestCase
         $this->actingAs(factory('App\User')->make());
         $response = $this->call('GET', '/movies/create');
         $this->assertEquals(200, $response->status());
+        $response->assertViewIs('movies.create');
       }
       // -----------------------------------------------------------------------
       public function test_guest_access_to_movie_edit_page()
@@ -145,6 +148,7 @@ class WAuthTest extends TestCase
         $this->actingAs(factory('App\User')->make());
         $response = $this->call('GET', '/movies/1/edit');
         $this->assertEquals(200, $response->status());
+        $response->assertViewIs('movies.edit');
       }
       // -----------------------------------------------------------------------
       public function test_guest_access_to_movie_store()
@@ -235,6 +239,7 @@ class WAuthTest extends TestCase
        $this->actingAs(factory('App\User')->make());
        $response = $this->call('GET', '/tickets/create');
        $this->assertEquals(200, $response->status());
+       $response->assertViewIs('tickets.create');
      }
      // ------------------------------------------------------------------------
      public function test_guest_access_to_ticket_edit_page()
@@ -249,6 +254,7 @@ class WAuthTest extends TestCase
        $this->actingAs(factory('App\User')->make());
        $response = $this->call('GET', '/tickets/1/edit');
        $this->assertEquals(200, $response->status());
+       $response->assertViewIs('tickets.edit');
      }
      // ------------------------------------------------------------------------
      public function test_guest_access_to_ticket_store()
@@ -344,19 +350,9 @@ class WAuthTest extends TestCase
        $this->actingAs(factory('App\User')->make());
        $response = $this->call('GET', '/myTickets');
        $this->assertEquals(200, $response->status());
+       $response->assertViewIs('tickets.showMyTickets');
      }
      // ------------------------------------------------------------------------
 
 
-
-    //  public function testLoginPost(){
-    //    Session::start();
-    //    $response = $this->call('POST', '/login', [
-    //      'email' => 'badUsername@gmail.com',
-    //      'password' => 'badPass',
-    //      '_token' => csrf_token()
-    //    ]);
-    //    $this->assertEquals(200, $response->getStatusCode());
-    //    $this->assertEquals('auth.login', $response->original->name());
-    // }
 }
