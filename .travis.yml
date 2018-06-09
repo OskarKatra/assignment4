@@ -15,4 +15,4 @@ deploy:
   verbose: true
 notifications:
   email:
-    recipients: oskar1.katra@gmail.com
+    recipients: oskar1.katra@gmail.com, robin.lars.hakansson@gmail.com
