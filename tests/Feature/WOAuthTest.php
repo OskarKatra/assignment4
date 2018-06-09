@@ -15,6 +15,7 @@ class WOAuthTest extends TestCase
         $this->assertEquals(200, $response->status());
         $response->assertViewIs('welcome');
     }
+    // ------------------------------------------------------------------------
     public function test_cinema_page()
     {
         $response = $this->call('GET', '/cinemas');
@@ -30,7 +31,7 @@ class WOAuthTest extends TestCase
         $this->assertEquals(200, $response->status());
         $response->assertViewIs('cinemas.show');
     }
-
+    // ------------------------------------------------------------------------
     public function test_movies_page()
     {
         $response = $this->call('GET', '/movies');
@@ -46,7 +47,7 @@ class WOAuthTest extends TestCase
         $this->assertEquals(200, $response->status());
         $response->assertViewIs('movies.show');
     }
-
+    // ------------------------------------------------------------------------
     public function test_tickets_page()
     {
         $response = $this->call('GET', '/tickets');
@@ -62,5 +63,6 @@ class WOAuthTest extends TestCase
         $this->assertEquals(200, $response->status());
         $response->assertViewIs('tickets.show');
     }
+    // ------------------------------------------------------------------------
 
 }
