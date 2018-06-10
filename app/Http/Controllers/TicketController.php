@@ -128,8 +128,13 @@ class TicketController extends Controller
     */
     public function destroy($id)
     {
+        try {
         $ticket = Ticket::find($id);
         $ticket->delete();
+        }
+        catch(\Exception $e) {
+            return redirect()->route('ticket.edit', ['id' => $id]);
+        }
 
         return redirect()->route('tickets.index');
     }
