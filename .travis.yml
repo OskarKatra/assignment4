@@ -14,7 +14,7 @@ deploy:
   provider: azure_web_apps
   verbose: true
   on:
-    branch: master
+    tags: true
 notifications:
   email:
     recipients: oskar1.katra@gmail.com, robin.lars.hakansson@gmail.com
